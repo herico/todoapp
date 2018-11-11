@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light");
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(
+    to right,
+    rgb(26, 42, 108),
+    rgb(178, 31, 31),
+    rgb(253, 187, 45)
+  );
+  min-height: 100vh;
+}
+
+#app {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Shadows Into Light", cursive;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.container-items {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  transition: all 1s ease-in-out;
+}
+
+.todo-item {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  margin: 10px 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.content {
+  font-size: 23px;
+  flex: 3;
+}
+
+.buttons {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  width: 70px;
+  padding: 5px;
+  margin: 0 5px;
+  font-style: italic;
+  font-family: "Shadows Into Light", cursive;
+  font-weight: bold;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+button.done {
+  background: linear-gradient(to right, rgb(34, 193, 195), rgb(253, 187, 45));
+}
+
+button.delete {
+  background: linear-gradient(to right, rgb(203, 53, 107), rgb(189, 63, 50));
+}
+
+.form {
+  display: none;
+  margin-top: 20px;
+  width: 100%;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease-in-out;
+}
+
+input#todoContent {
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  font-style: italic;
+  font-family: "Shadows Into Light", cursive;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  padding: 5px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+button.add {
+  background: linear-gradient(to right, rgb(40, 60, 134), rgb(69, 162, 71));
+  color: white;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 15px;
+}
+
+div.add-button {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.horizonatal {
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  background: black;
+  top: 38%;
+  left: 0;
+  border-radius: 4px;
+}
+
+.vertical {
+  position: absolute;
+  height: 40px;
+  width: 10px;
+  background: black;
+  left: 38%;
+  top: 0;
+  border-radius: 4px;
+}
+
+div.add-button:hover {
+  transform: rotate(45deg);
+}
