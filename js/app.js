@@ -1,7 +1,7 @@
 if('serviceWorker' in navigator) {
     window.addEventListener("load", e => {
         navigator.serviceWorker
-        .register('../serviceWorkerSite.js')
+        .register('../serviceWorker.js')
         .then(reg => {
             console.log(`Service Worked: Registered`);
         }).catch(err => {
