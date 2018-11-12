@@ -1,17 +1,3 @@
-if('serviceWorker' in navigator) {
-    window.addEventListener("load", e => {
-        navigator.serviceWorker
-        .register('../serviceWorker.js')
-        .then(reg => {
-            console.log(`Service Worked: Registered`);
-        }).catch(err => {
-            console.log(`Service Worker error occured: ${err}`);
-        })
-    });
-}
-
-
-
 const containerItems = document.querySelector(".container-items");
 const todoContent = document.querySelector("input#todoContent");
 const addButton = document.querySelector("button.add");
