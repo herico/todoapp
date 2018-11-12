@@ -1,3 +1,4 @@
+console.log("Loaded");
 const containerItems = document.querySelector(".container-items");
 const todoContent = document.querySelector("input#todoContent");
 const addButton = document.querySelector("button.add");

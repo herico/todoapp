@@ -30,8 +30,10 @@ body {
   flex-direction: column;
 }
 
-.title {
-  font-size: 50px;
+.logo {
+  width: 300px;
+  object-fit: contain;
+  margin-bottom: 50px;
 }
 
 .container-items {
@@ -133,7 +135,7 @@ div.add-button {
   height: 40px;
   position: relative;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .horizonatal {
@@ -157,5 +159,5 @@ div.add-button {
 }
 
 div.add-button:hover {
-  transform: rotate(45deg);
+  transform: rotate(90deg);
 }
