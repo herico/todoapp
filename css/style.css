@@ -5,12 +5,10 @@ body {
   padding: 0;
   width: 100%;
   margin: 0 auto;
-  background: linear-gradient(
-    to right,
+  background: linear-gradient(to right,
     rgb(26, 42, 108),
     rgb(178, 31, 31),
-    rgb(253, 187, 45)
-  );
+    rgb(253, 187, 45));
   min-height: 100vh;
 }
 
@@ -83,7 +81,7 @@ button {
   font-weight: bold;
   border: none;
   font-size: 18px;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -93,6 +91,10 @@ button.done {
 
 button.delete {
   background: linear-gradient(to right, rgb(203, 53, 107), rgb(189, 63, 50));
+}
+
+button.undone {
+  background: linear-gradient(to right, rgb(170, 75, 107), rgb(107, 107, 131), rgb(59, 141, 153));
 }
 
 .form {

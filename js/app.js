@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (e.target.nodeName === 'BUTTON' && e.target.id && e.target.classList.contains("done")) {
             const id = parseInt(e.target.id);
             doneTodoInLocalStorage(id);
+        } else if (e.target.nodeName === 'BUTTON' && e.target.id && e.target.classList.contains("undone")) {
+            const id = parseInt(e.target.id);
+            unDoneTodoInLocalStorage(id);
         }
     });
 
@@ -80,7 +83,6 @@ function addTodoItem(todo) {
     const todoItem = document.createElement("div");
     const content = document.createElement("p");
     const buttons = document.createElement("div");
-    const buttonDone = document.createElement("button");
     const buttonDelete = document.createElement("button");
 
 
@@ -92,10 +94,18 @@ function addTodoItem(todo) {
 
 
     if (!todo.done) {
+        const buttonDone = document.createElement("button");
         buttonDone.innerHTML = "Done";
         buttonDone.classList.add("done");
         buttonDone.id = todo.id;
         buttons.appendChild(buttonDone);
+    } else {
+        const buttonUnDone = document.createElement("button");
+        buttonUnDone.innerHTML = "Undone";
+        buttonUnDone.classList.add("undone");
+        buttonUnDone.id = todo.id;
+        buttons.appendChild(buttonUnDone);
+        todoItem.style.background = "linear-gradient(to right, rgb(131, 96, 195), rgb(46, 191, 145))";
     }
 
     buttons.appendChild(buttonDelete);
@@ -118,7 +128,11 @@ function addToLocalStorage(todo) {
 }
 
 function deleteFromLocalStorage(id) {
-    loadLocalStorage(id);
+    loadLocalStorage(id, 'delete');
+}
+
+function unDoneTodoInLocalStorage(id) {
+    loadLocalStorage(id, 'undone');
 }
 
 function clearTodos() {
@@ -141,7 +155,7 @@ function doneTodoInLocalStorage(id) {
     loadLocalStorage();
 }
 
-function loadLocalStorage(todo) {
+function loadLocalStorage(todo, type = 'delete') {
     // Clear everything first
     clearTodos();
     // Check browser support
@@ -152,8 +166,15 @@ function loadLocalStorage(todo) {
             // Add to localStorage
             if (todo && typeof todo === 'object') {
                 todos.push(todo);
-            } else if (todo && typeof todo === 'number') {
+            } else if (todo && typeof todo === 'number' && type === 'delete') {
                 todos = todos.filter(t => t.id !== todo);
+            } else if (todo && typeof todo === 'number' && type === 'undone') {
+                todos = todos.map(t => {
+                    if (t.id === todo) {
+                        delete t.done;
+                    }
+                    return t;
+                });
             }
             localStorage.setItem("todos", JSON.stringify(todos));
         } else {
